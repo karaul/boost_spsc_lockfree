@@ -1,20 +1,24 @@
 # boost_spsc_lockfree example
 
-complile:
+_to complile:_
 
-g++ -std=c++14 -pthread main.cpp -o main
+g++ -Wall -std=c++14 -pthread main.cpp -o main
 
 
 
-input:
+_input_:
 
 ./main 1 -x -8 98 56 32 f 4 5 -89 
 
 
 
-output:
+_output:_
 
 ( 1 NaN -8) 
+
 ( 98 56 32) 
+
 ( NaN 4 5) 
+
 ( -89 NaN NaN) 
+

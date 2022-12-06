@@ -1,22 +1,14 @@
 #include <iostream>
 #include <iomanip>
 #include <bitset>
-#include <boost/lockfree/queue.hpp>
-//#include <atomic>
 #include <thread>
 
+#include <boost/lockfree/queue.hpp>
 #include <boost/atomic.hpp>
 
-boost::atomic_int producer_count(0);
-boost::atomic_int consumer_count(0);
-
-const int producer_thread_count = 1; //4;
-const int consumer_thread_count = 1; //4;
 
 const int ntrey=3;
-const int capacity=8;
-
-
+const int capacity=8; // > 4 ?
 
 struct TreyVal
 {
@@ -38,7 +30,7 @@ struct TreyVal producer_worker(char *c)
     }
 };
 
-void consumer_worker(TreyVal a, TreyVal b, TreyVal c)
+void consumer_worker(const TreyVal &a, const TreyVal &b, const TreyVal &c)
 {
 
     std::ostringstream strey;
